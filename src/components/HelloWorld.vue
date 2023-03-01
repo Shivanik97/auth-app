@@ -26,9 +26,9 @@ export default {
         this.isAuth = true;
         this.getToken();
         sessionStorage.setItem("authToken", result.accessToken);
-        console.log("User logged in");
+        // console.log("User logged in");
       } catch (err) {
-        console.log(err)
+        // console.log(err)
       }
     },
     async logout() {
@@ -36,7 +36,7 @@ export default {
         await myMSALObj.logout(graphScopes)
         this.isAuth = false;
       } catch (err) {
-        console.log(err)
+        // console.log(err)
       }
     },
     async getToken() {
@@ -45,11 +45,11 @@ export default {
           scopes: ['user.read']
         });
         this.user = response.account.name;
-        console.log('Token success', response.accessToken)
+        // console.log('Token success', response.accessToken)
         sessionStorage.setItem('accessToken', response.accessToken);
         return response.accessToken
       } catch (error) {
-        console.log('Token error', error)
+        // console.log('Token error', error)
         return null
       }
     },
